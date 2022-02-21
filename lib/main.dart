@@ -1,20 +1,31 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'features/logInSingUp/views/logInSingUpBody.dart';
 
-import 'features/changeCity/ViewHomeScreen.dart';
 
+void main() {
+  runApp(MaterialApp(
+    title: 'mmmmmm',
+    home: FistPage(),
 
-void main() => runApp(MyApp());
+  ));
 
-class MyApp extends StatelessWidget {
+}
+class FistPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: ViewHomeScreen()
+    return  Container(
+      child: Scaffold(
+            appBar: AppBar(
+              title: Text('app bar'),
+            ),
+            body:  Center(
+                child:Container(
+                  child:
+                    LogInSingUpBody(),
+              ),
+            ),
+      ),
     );
   }
 }
