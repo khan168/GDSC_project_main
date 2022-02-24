@@ -35,7 +35,6 @@ class _logInSingUpImageInfoState extends State<LogInSingUpImageInfo> {
               fontWeight: FontWeight.bold,
             )),
             SizedBox(height: 50,),
-
           ],
         ),
       ),

@@ -14,7 +14,7 @@ class _logInSingUpButtonsState extends State<SingUpButtons> {
     return SafeArea(child:
           Container(
 
-      child: Column(
+            child: Column(
           children:[
           Text('hii'),
                 ]
