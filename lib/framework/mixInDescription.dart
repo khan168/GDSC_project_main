@@ -1,0 +1,3 @@
+mixin MixInDescription {
+  String getDescription();
+}
