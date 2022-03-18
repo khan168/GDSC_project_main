@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'fazerAsFuncoesLOGINESALVAr.dart';
+
 
 class LogInBody extends StatefulWidget {
   static const String id = 'mentor sample 1';
@@ -29,9 +31,14 @@ class _Sample1State extends State<LogInBody> {
         ),
 
         child: Column(
+
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 80),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(12,36,0,0),
+              child: SizedBox(child: BackArrowLogInScreen()) ),
+
+            const SizedBox(height: 14),
             // #login, #welcome
             Padding(
               padding: const EdgeInsets.all(20),

@@ -15,8 +15,9 @@ class _logInSingUpButtonsState extends State<SingUpButtons> {
           Container(
 
             child: Column(
-          children:[
-          Text('hii'),
+              children:[
+
+            Text('hii'),
                 ]
       ),
           ),

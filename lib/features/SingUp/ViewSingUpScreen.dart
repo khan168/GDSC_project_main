@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_gdsc_competion/features/SingUp/views/SingUpBody.dart';
 
 
 class SingUpScreen extends StatefulWidget {
@@ -17,7 +18,7 @@ class _ViewHomeScreenState extends State<SingUpScreen> {
         appBar: AppBar(
           title: Text('Sing Up Screen'),
         ),
-        body: Text(''),
+        body: SingUpBody(),
       );
   }
 }

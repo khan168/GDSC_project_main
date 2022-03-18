@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'BackArrow.dart';
-import 'LogInButton1.dart';
-import 'SingUpCharityInstitutionButton.dart';
+import 'package:google_gdsc_competion/features/veryFirstScreenUserType/views/CharityInstitutionsButton.dart';
+import 'package:google_gdsc_competion/features/veryFirstScreenUserType/views/DonorButton.dart';
+import 'LogInButton.dart';
 
 
-class LogInSingUpBody extends StatefulWidget {
-  const LogInSingUpBody({Key? key}) : super(key: key);
+class BodyVeryFirstScreen extends StatefulWidget {
+  const BodyVeryFirstScreen({Key? key}) : super(key: key);
 
   @override
   _Sample1State createState() => _Sample1State();
 }
 
-class _Sample1State extends State<LogInSingUpBody> {
+class _Sample1State extends State<BodyVeryFirstScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,16 +31,12 @@ class _Sample1State extends State<LogInSingUpBody> {
         ),
 
         child: Column(
-
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(12,36,0,0),
-              child: SizedBox(child: BackArrow() ),
-            ),
+            const SizedBox(height: 50),
 
             const Padding(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.all(20),
               child: Center(
                 child:SizedBox(
                   height: 200,
@@ -56,7 +52,7 @@ class _Sample1State extends State<LogInSingUpBody> {
               ),
             ),
 
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
 
             Expanded(
               child: Container(
@@ -69,52 +65,34 @@ class _Sample1State extends State<LogInSingUpBody> {
                     padding: const EdgeInsets.all(48),
                     child: Column(
                       children: [
-                        Text('Welcome to your help!!!',
+                        Text('Are you a?',
                           textAlign: TextAlign.left,
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold
                           ),),
-                        const SizedBox(height: 60,),
-
-                        Text('''Thank you for Signing''',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 24.0,
-                              fontWeight: FontWeight.bold
-                          ),),
-                        Text('''up as a Charity''',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 24.0,
-                              fontWeight: FontWeight.bold
-                          ),),
-                        Text('''Institution!!''',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 24.0,
-                              fontWeight: FontWeight.bold
-                          ),),
-                        const SizedBox(height: 60),
+                        const SizedBox(height: 80,),
                         // #email, #password
                         Container(
+
                           child: Column(
                             children: [//click on the one that most fits yoy
                               Container(
-                                child: SingUpCharityInstitutionButton(),
+                                child: CharityInstitutionButton()
+                                ,
                               ),
                               SizedBox(
                                 height: 50,
                               ),
                               Container(
-                                child: LogInButton1(),
+                                child: DonorButton(),
                               ),
                               SizedBox(
-
+                                height: 50,
+                              ),
+                              Container(
+                                child: LogInButton(),
                               ),
                             ],
                           ),

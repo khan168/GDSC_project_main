@@ -3,8 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'ViewHeaderSearchCity.dart';
 import 'ViewListCities.dart';
 
-
-
 class ViewSearchCityBody extends StatefulWidget {
   const ViewSearchCityBody({Key? key}) : super(key: key);
 
@@ -19,7 +17,8 @@ class _ViewPesquisaCidadeBodyState extends State<ViewSearchCityBody> {
       child:
         Padding(
           padding: EdgeInsets.all(8.0),
-          child: ViewListCities(),
+          child: Text('oooo')
+          //ViewListCities(),
         ),
     );
   }

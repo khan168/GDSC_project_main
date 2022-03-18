@@ -31,11 +31,12 @@ class ViewListCities extends StatelessWidget {
                 shrinkWrap: true,
                 itemCount: viewModel.visibleList.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return ListItemChangeCity(
-                    argumentoDePesquisa: viewModel.controlerFieldPesquisa.text,
-                    city: viewModel.visibleList[index].city,
-                    quantidadeDePrestadores: viewModel.visibleList[index].city.totalDonators,
-                  );
+                  return Text('data');
+                    //ListItemChangeCity(
+                   // argumentoDePesquisa: viewModel.controlerFieldPesquisa.text,
+                    //city: viewModel.visibleList[index].city,
+                    //quantidadeDePrestadores: viewModel.visibleList[index].city.totalDonators,
+                  //);
                 }),
           ],
         ),

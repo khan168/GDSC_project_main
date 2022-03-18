@@ -14,9 +14,6 @@ class _ViewHomeScreenState extends State<LogInSingUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Sing Up Screen'),
-      ),
       body: LogInSingUpBody(),
     );
   }
