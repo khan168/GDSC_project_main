@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'features/logIn/logInScreen.dart';
 import 'features/veryFirstScreenUserType/veryFirstScreenUserType.dart';
 
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: ViewVeryFirstScreen()
+        home: LogInScreen()
     );
   }
 }

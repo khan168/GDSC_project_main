@@ -1,20 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'fazerAsFuncoesLOGINESALVAr.dart';
+import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 
 
 class LogInBody extends StatefulWidget {
-  static const String id = 'mentor sample 1';
-  const LogInBody({Key? key}) : super(key: key);
-
+  final Client client;
+//  final ViewModelLogIn viewMoldel;
+  const LogInBody({Key? key,
+    required this.client
+  //required this.viewMoldel,
+  }) : super(key: key);
   @override
-  _Sample1State createState() => _Sample1State();
+  _LogInBody createState() => _LogInBody();
 }
+class _LogInBody extends State<LogInBody> {
+  Client client = http.Client();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
 
-class _Sample1State extends State<LogInBody> {
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {1
     return Scaffold(
       body: Container(
 
@@ -84,12 +92,18 @@ class _Sample1State extends State<LogInBody> {
                                 decoration: BoxDecoration(
                                   border: Border(bottom: BorderSide(color: Colors.grey.shade200)),
                                 ),
-                                child: const TextField(
+                                child: TextField(
+                                  controller: emailController,
                                   decoration: InputDecoration(
+                                    suffixIcon: IconButton(
+                                      icon: Icon(Icons.close),
+                                      onPressed: () => emailController.clear(),
+                                    ),
                                       hintText: "Email",
                                       hintStyle: TextStyle(color: Colors.grey),
                                       border: InputBorder.none
                                   ),
+                                  keyboardType: TextInputType.emailAddress,
                                 ),
                               ),
                               Container(
@@ -97,29 +111,62 @@ class _Sample1State extends State<LogInBody> {
                                 decoration: BoxDecoration(
                                   border: Border(bottom: BorderSide(color: Colors.grey.shade200)),
                                 ),
-                                child: const TextField(
+                                child:  TextField(
+                                  controller: passwordController,
                                   decoration: InputDecoration(
+                                      suffixIcon: IconButton(
+                                        icon: Icon(Icons.close),
+                                        onPressed: () => passwordController.clear(),
+                                      ),
                                       hintText: "Password",
                                       hintStyle: TextStyle(color: Colors.grey),
                                       border: InputBorder.none
                                   ),
                                 ),
                               ),
-
                             ],
                           ),
                         ),
-                        const SizedBox(height: 40),
+                         SizedBox(height: 40),
                         // #login
                         Container(
                           height: 50,
-                          margin: const EdgeInsets.symmetric(horizontal: 50),
+                          margin:  EdgeInsets.symmetric(horizontal: 50),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(50),
                               color: Colors.green[800]
                           ),
-                          child: const Center(
-                            child: Text("Login",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                          child:  Center(
+                            child: RaisedButton(
+                              onPressed: () {
+                                widget.client.post( , body: {'password': passwordController.text, 'email' : emailController.text});
+                                Navigator.pop(context);
+                              },
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
+                              padding: EdgeInsets.all(0.0),
+                              child: Ink(
+                                decoration: BoxDecoration(
+                                    gradient: LinearGradient(colors: [Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400],
+                                      begin: Alignment.centerLeft,
+                                      end: Alignment.centerRight,
+                                    ),
+                                    borderRadius: BorderRadius.circular(30.0)
+                                ),
+                                child: Container(
+                                  constraints: BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    'Log in',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20.0,
+                                        fontWeight: FontWeight.bold
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                         const SizedBox(height: 30),
