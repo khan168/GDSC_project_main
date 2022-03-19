@@ -20,29 +20,24 @@ class _topnamehomeScreenRichPoorState extends State<TopNameHomeScreenRichPoor> {
         children: [
           Column(
             children: [
-              Container(
-                child: Text(
+               Text(
                   'Hello,',
                   style: TextStyle(
                       fontSize: 30.0,
                       color: Colors.grey,
                       fontWeight: FontWeight.bold
                   ),
-                ),
               ),
-
               SizedBox(height: 2),
-
-              Container(
-                child: Text(
-                  user.name,
-                  style: TextStyle(
-                      fontSize: 35.0,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold
-                  ),
+              Text(
+                user.name,
+                style: TextStyle(
+                    fontSize: 35.0,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold
                 ),
               ),
+
             ],
           ),
           SizedBox(width:130),

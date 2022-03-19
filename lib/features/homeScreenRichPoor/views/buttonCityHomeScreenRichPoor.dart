@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import '../../changeCity/viewChangeCity.dart';
 class buttonCityHomeScreenRichPoor extends StatefulWidget {
   const buttonCityHomeScreenRichPoor({Key? key}) : super(key: key);
 
@@ -11,50 +11,43 @@ class buttonCityHomeScreenRichPoor extends StatefulWidget {
 class _buttonforcityhomeScreenRichPoorState extends State<buttonCityHomeScreenRichPoor> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(0,40,0,0),
-      child: Container(
-        alignment: Alignment.centerLeft,
+    return  Container(
+        alignment: Alignment.center,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              'Select the City where you would like to donate',
-              style: TextStyle(
-                  fontSize: 20.0,
-                  color: Colors.grey,
-                  letterSpacing: 1.0
-              ),
-            ),
-            SizedBox(height: 25,),
+            SizedBox(height: 20,),
+            Text('''Select the City where you would like to 
+donate''', style: TextStyle(fontSize: 16.0),),
+            SizedBox(height: 10,),
             Container(
               child: OutlineButton(
                 child: Container(
-                    width: 290,
+                    width: 260,
+                    height: 40,
                     alignment: Alignment.center,
                     child: Row(
                       children: [
 
                         Text("Select City", style: TextStyle(fontSize: 15.0),),
-                        SizedBox(width: 180,),
+                        SizedBox(width: 150,),
                         Icon(Icons.search)
 
                       ],
-                    )),
+                    )
+                ),
                 highlightedBorderColor: Colors.blue,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30)),
-                onPressed: () {},
-
-
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ViewChangeCity()
+                  ));
+                },
               ),
             ),
-
           ],
         ),
-      ),
     );
-
-
   }
 }

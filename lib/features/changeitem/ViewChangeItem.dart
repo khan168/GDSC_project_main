@@ -10,23 +10,31 @@ class ViewChangeItem extends StatefulWidget {
   @override
   _ViewHomeScreenState createState() => _ViewHomeScreenState();
 }
-
 class _ViewHomeScreenState extends State<ViewChangeItem> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Choose One Item'),
+
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              color: Colors.blue.shade700
+
+
+            ),
+          ),
+        title: Text('Choose One Item', style: TextStyle(color: Colors.black),),
       ),
       body:
       SafeArea(
-        child: Column(
-          children: [
-            ViewChangeItemHeaderSearchItem(),
-            ViewChangeItemBody(),
-          ],
-        ),
+        child: ViewChangeItemBody(),
       ),
-    );;
+    );
   }
 }
+/*
+
+
+
+
+ */

@@ -1,27 +1,30 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class recentsearchesCardHomeScreenRichPoor extends StatefulWidget {
-  const recentsearchesCardHomeScreenRichPoor({Key? key}) : super(key: key);
+class FourCardsHomeScreenRichPoor extends StatefulWidget {
+  const FourCardsHomeScreenRichPoor({Key? key}) : super(key: key);
 
   @override
   _recentsearchesCardHomeScreenRichPoorState createState() => _recentsearchesCardHomeScreenRichPoorState();
 }
 
-class _recentsearchesCardHomeScreenRichPoorState extends State<recentsearchesCardHomeScreenRichPoor> {
+class _recentsearchesCardHomeScreenRichPoorState extends State<FourCardsHomeScreenRichPoor> {
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.fromLTRB(20, 10, 0, 0),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 myWidget1(),
                 myWidget2(),
               ]
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               myWidget3(),
               myWidget4()

@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_gdsc_competion/features/homeScreenRichPoor/views/recentsearchesCardsHomeScreenRichPoor.dart';
+import 'package:google_gdsc_competion/features/homeScreenRichPoor/views/fourCardsHomeScreenRichPoor.dart';
 import 'package:google_gdsc_competion/features/homeScreenRichPoor/views/topNameHomeScreenRichPoor.dart';
-import 'package:google_gdsc_competion/features/veryFirstScreenUserType/views/CharityInstitutionsButton.dart';
-import 'package:google_gdsc_competion/features/veryFirstScreenUserType/views/DonorButton.dart';
-
 import 'buttonCityHomeScreenRichPoor.dart';
+import 'buttonforitemHomeScreenRichPoor.dart';
 
 
 class BodyHomeScreenRichPoor extends StatefulWidget {
@@ -36,44 +34,40 @@ class _Sample1State extends State<BodyHomeScreenRichPoor> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             TopNameHomeScreenRichPoor(),
-
-            const SizedBox(height: 10),
 
             Expanded(
               child: Container(
                 decoration: const BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(60),topRight: Radius.circular(60)),
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
                 ),
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(10),
                     child: Column(
                       children: [
-
-                        const SizedBox(height: 40,),
-                        // #email, #password
                         Container(
-
                           child: Column(
-                            children: [//click on the one that most fits yoy
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(height: 20,),
+
                               Container(
                                 child: buttonCityHomeScreenRichPoor(),
-
                               ),
                               SizedBox(
-                                height: 50,
+                                height: 15,
                               ),
                               Container(
-                                child: recentsearchesCardHomeScreenRichPoor(),
+                                child: FourCardsHomeScreenRichPoor(),
                               ),
                               SizedBox(
-                                height: 50,
+                                height: 15,
                               ),
                               Container(
-                                child: Text(''),//LogInButton(),
+                                child: ButtonItemHomeScreenRichPoor(),//LogInButton(),
                               ),
                             ],
                           ),

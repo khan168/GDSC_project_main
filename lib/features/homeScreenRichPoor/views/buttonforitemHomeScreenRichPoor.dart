@@ -1,56 +1,55 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class buttonforitemHomeScreenRichPoor extends StatefulWidget {
-  const buttonforitemHomeScreenRichPoor({Key? key}) : super(key: key);
+import '../../changeitem/ViewChangeItem.dart';
+
+class ButtonItemHomeScreenRichPoor extends StatefulWidget {
+  const ButtonItemHomeScreenRichPoor({Key? key}) : super(key: key);
 
   @override
-  _buttonforitemHomeScreenRichPoorState createState() => _buttonforitemHomeScreenRichPoorState();
+  _buttonforcityhomeScreenRichPoorState createState() => _buttonforcityhomeScreenRichPoorState();
 }
 
-class _buttonforitemHomeScreenRichPoorState extends State<buttonforitemHomeScreenRichPoor> {
+class _buttonforcityhomeScreenRichPoorState extends State<ButtonItemHomeScreenRichPoor> {
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding: const EdgeInsets.fromLTRB(0,30,0,0),
-      child: Container(
-        alignment: Alignment.centerLeft,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Select the item  you would like to donate or recieve',
-              style: TextStyle(
-                  fontSize: 20.0,
-                  color: Colors.grey,
-                  letterSpacing: 1.0
+    return  Container(
+      alignment: Alignment.center,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(height: 20,), //'Select the item  you would like to donate or recieve'
+          Text('''Select the item you would like to donate 
+or recieve''',
+            style: TextStyle(fontSize: 16.0),),
+          SizedBox(height: 10,),
+          Container(
+            child: OutlineButton(
+              child: Container(
+                  width: 260,
+                  height: 40,
+                  alignment: Alignment.center,
+                  child: Row(
+                    children: [
+
+                      Text("Select Item", style: TextStyle(fontSize: 15.0),),
+                      SizedBox(width: 150,),
+                      Icon(Icons.search)
+
+                    ],
+                  )
               ),
+              highlightedBorderColor: Colors.blue,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => ViewChangeItem()
+                ));
+              },
             ),
-            SizedBox(height: 25,),
-            Container(
-              child: OutlineButton(
-                child: Container(
-                    width: 500,
-                    alignment: Alignment.centerLeft,
-                    child: Row(
-                      children: [
-                        Text("Select item", style: TextStyle(fontSize: 15.0),),
-                        SizedBox(width: 240,),
-                        Icon(Icons.search)
-
-                      ],
-                    )),
-                highlightedBorderColor: Colors.blue,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30)),
-                onPressed: () {},
-
-
-              ),
-            ),
-
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

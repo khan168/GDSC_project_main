@@ -24,11 +24,13 @@ class _ViewChangeItemHeaderSearchItemState extends State<ViewChangeItemHeaderSea
             },
             decoration: new InputDecoration(
               prefixIcon: new Icon(Icons.search),
+           fillColor: Colors.white, filled: true,
+
               labelText: "Search Item",
               enabledBorder: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 borderSide: const BorderSide(
-                  color: Colors.grey,
+                  color: Colors.black,
                 ),
               ),
               focusedBorder: OutlineInputBorder(

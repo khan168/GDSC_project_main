@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'ViewChangeItemHeaderSearchItem.dart';
 import 'ViewListItems.dart';
 
 
@@ -13,10 +15,13 @@ class _ViewChangeItemBodyState extends State<ViewChangeItemBody> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child:
-      Padding(
-        padding: EdgeInsets.all(8.0),
-        child: ViewListItems(),
+      color: Colors.blue.shade200,
+
+      child: Column(
+        children: [
+          ViewChangeItemHeaderSearchItem(),
+          ViewListItems(),
+        ]
       ),
     );
   }
