@@ -1,3 +1,5 @@
+import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_gdsc_competion/features/logIn/views/logInBody.dart';
@@ -11,6 +13,7 @@ class LogInScreen extends StatefulWidget {
 }
 
 class _ViewHomeScreenState extends State<LogInScreen> {
+  Client client = http.Client();
 
 
   @override

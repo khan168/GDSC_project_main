@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../SingUp/ViewSingUpScreen.dart';
+import '../../singUpScreenInstitution/ViewSingUpScreenInstitution.dart';
 
 class SingUpCharityInstitutionButton extends StatefulWidget {
   const SingUpCharityInstitutionButton({Key? key}) : super(key: key);
@@ -16,7 +15,7 @@ class _LogInButtonState extends State<SingUpCharityInstitutionButton> {
     return RaisedButton(
       onPressed: () {
       Navigator.of(context).push(MaterialPageRoute(
-       builder: (context) => SingUpScreen()
+       builder: (context) => singUpScreenInstitution()
         ));
       },
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
