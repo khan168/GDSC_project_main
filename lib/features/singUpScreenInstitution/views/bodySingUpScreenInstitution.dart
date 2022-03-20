@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
+import '../../homeScreenRichPoor/viewHomeScreenRichPoor.dart';
 import 'backArrowSingUpScreenInstitutions.dart';
 
 
@@ -76,10 +77,6 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
-                            boxShadow: const[
-                              BoxShadow(
-                                  color: Color.fromRGBO(171, 171, 171, .7),blurRadius: 20,offset: Offset(0,10)),
-                            ],
                           ),
                           child: Column(
                             children: [
@@ -99,7 +96,6 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
                               SizedBox(height: 5,),
                               _phoneWidget(),
                               SizedBox(height: 5,),
-
                             ],
                           ),
                         ),
@@ -115,8 +111,9 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
                           child:  Center(
                             child: RaisedButton(
                               onPressed: () {
-                                //widget.client.post( , body: {'password': passwordController.text, 'email' : emailController.text});
-                                // Navigator.pop(context);
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => ViewHomeScreenRichPoor()
+                                ));
                               },
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
                               padding: EdgeInsets.all(0.0),
