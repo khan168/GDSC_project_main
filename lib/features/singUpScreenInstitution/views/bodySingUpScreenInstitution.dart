@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-
+import 'package:email_validator/email_validator.dart';
 import '../../homeScreenRichPoor/viewHomeScreenRichPoor.dart';
 import 'backArrowSingUpScreenInstitutions.dart';
 
@@ -11,7 +11,7 @@ class BodySingUpScreenInstitution extends StatefulWidget {
 //  final Client client;
 
 //  final ViewModelLogIn viewMoldel;
-  const BodySingUpScreenInstitution({Key? key,
+   const BodySingUpScreenInstitution({Key? key,
 //    required this.client
     //required this.viewMoldel,
   }) : super(key: key);
@@ -28,6 +28,11 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
   final workingHoursController = TextEditingController();
   final cityController = TextEditingController();
   final phoneController = TextEditingController();
+
+
+  final formKeyAuthentication = GlobalKey<FormState>();
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -51,14 +56,14 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-                padding: const EdgeInsets.fromLTRB(12,46,10,20),
+                padding: const EdgeInsets.fromLTRB(12,34,0,4),
                 child:
                 Row(
                   children: [
                     SizedBox(child:
                      BackArrowSingUpScreenInstitutions(),
                     ),
-                      Text("SingUp",style: TextStyle(color: Colors.white,fontSize: 40),),
+                      Text("SingUp",style: TextStyle(color: Colors.white,fontSize: 32),),
                   ],
                 ),
             ),
@@ -70,33 +75,35 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
                 ),
                 child: SingleChildScrollView(
                   child: Padding(
-                    padding: const EdgeInsets.all(30),
+                    padding: const EdgeInsets.fromLTRB(30,5,30,0),
                     child: Column(
                       children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Column(
-                            children: [
-                              _nameWidget(),
-                              SizedBox(height: 5,),
-                              _emailWidget(),
-                              SizedBox(height: 5,),
-                              _passwordWidget(),
-                              SizedBox(height: 5,),
-                              _addressWidget(),
-                              SizedBox(height: 5,),
-                              _itemsAcceptedWidget(),
-                              SizedBox(height: 5,),
-                              _workingHoursWidget(),
-                              SizedBox(height: 5,),
-                              _cityWidget(),
-                              SizedBox(height: 5,),
-                              _phoneWidget(),
-                              SizedBox(height: 5,),
-                            ],
+                        Form(
+                          key: formKeyAuthentication,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Column(
+                              children: [
+                                _nameWidget(),
+                                SizedBox(height: 3,),
+                                _emailWidget(),
+                                SizedBox(height: 3,),
+                                _passwordWidget(),
+                                SizedBox(height: 3,),
+                                _phoneWidget(),
+                                SizedBox(height: 3,),
+                                _addressWidget(),
+                                SizedBox(height: 3,),
+                                _itemsAcceptedWidget(),
+                                SizedBox(height: 3,),
+                                _workingHoursWidget(),
+                                SizedBox(height: 3,),
+                                _cityWidget(),
+                              ],
+                            ),
                           ),
                         ),
                         SizedBox(height: 40),
@@ -104,16 +111,19 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
                         Container(
                           height: 50,
                           margin:  EdgeInsets.symmetric(horizontal: 50),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: Colors.green[800]
-                          ),
+
                           child:  Center(
                             child: RaisedButton(
                               onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => ViewHomeScreenRichPoor()
-                                ));
+                                final form = formKeyAuthentication.currentState!;
+
+                                if (form.validate()) {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => ViewHomeScreenRichPoor()
+                                  ));
+                                }
+
+
                               },
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
                               padding: EdgeInsets.all(0.0),
@@ -158,27 +168,34 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
     return Stack(
       children: [
         TextFormField(
-          controller: nameController,
-          keyboardType: TextInputType.name,
-          textInputAction: TextInputAction.next,
-          decoration: InputDecoration(
-            suffixIcon: IconButton(
-              icon: Icon(Icons.close),
-              onPressed: () => nameController.clear(),
-            ),
-             hintText: 'Enter the name of your institution',
-            labelText: 'Name',
-            labelStyle: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-                fontSize: 13),
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.black,
+            controller: nameController,
+            keyboardType: TextInputType.name,
+            textInputAction: TextInputAction.next,
+            validator: (nameController) {
+              if (nameController!.isEmpty || !RegExp(r'^[a-z A-Z]+$').hasMatch(nameController)){
+                return "Enter a valid name";
+              }else{
+                return null;
+              }
+            },
+            decoration: InputDecoration(
+              suffixIcon: IconButton(
+                icon: Icon(Icons.close),
+                onPressed: () => nameController.clear(),
+              ),
+               hintText: 'Enter the name of your institution',
+              labelText: 'Name',
+              labelStyle: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 13),
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.black,
+                ),
               ),
             ),
           ),
-        ),
       ],
     );
   }
@@ -186,24 +203,32 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
   Widget _phoneWidget() {
     return Stack(
       children: [
-        TextFormField(
-          controller: phoneController,
-          keyboardType: TextInputType.name,
-          textInputAction: TextInputAction.next,
-          decoration: InputDecoration(
-            suffixIcon: IconButton(
-              icon: Icon(Icons.close),
-              onPressed: () => phoneController.clear(),
-            ),
-            hintText: 'Enter your phone number',
-            labelText: 'Number',
-            labelStyle: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-                fontSize: 13),
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.black,
+         TextFormField(
+            controller: phoneController,
+            keyboardType: TextInputType.name,
+            textInputAction: TextInputAction.next,
+            validator: (phoneNumberController) {
+              if ( phoneNumberController!.isEmpty|| phoneNumberController.length !=10  || !RegExp(r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]+$').hasMatch(phoneNumberController)){
+                return "Enter a valid phone number: 9999999999";
+              } else{
+                return null;
+              }
+            },
+            decoration: InputDecoration(
+              suffixIcon: IconButton(
+                icon: Icon(Icons.close),
+                onPressed: () => phoneController.clear(),
+              ),
+              hintText: 'Enter your phone number',
+              labelText: 'Phone number',
+              labelStyle: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 13),
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.black,
+
               ),
             ),
           ),
@@ -216,23 +241,27 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
     return Stack(
       children: [
         TextFormField(
-          controller: emailController,
-          keyboardType: TextInputType.name,
-          textInputAction: TextInputAction.next,
-          decoration: InputDecoration(
-            suffixIcon: IconButton(
-              icon: Icon(Icons.close),
-              onPressed: () => emailController.clear(),
-            ),
-            hintText: 'Enter your email address',
-            labelText: 'Email',
-            labelStyle: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-                fontSize: 13),
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.black,
+            controller: emailController,
+            keyboardType: TextInputType.name,
+            textInputAction: TextInputAction.next,
+            validator: (emailController) => !EmailValidator.validate(emailController!)
+                  ? 'Enter a valid email'
+                  : null,
+            decoration: InputDecoration(
+              suffixIcon: IconButton(
+                icon: Icon(Icons.close),
+                onPressed: () => emailController.clear(),
+              ),
+              hintText: 'Enter your email address',
+              labelText: 'Email',
+              labelStyle: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 13),
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.black,
+
               ),
             ),
           ),
@@ -246,23 +275,30 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
     return Stack(
       children: [
         TextFormField(
-          controller: passwordController,
-          keyboardType: TextInputType.name,
-          textInputAction: TextInputAction.next,
-          decoration: InputDecoration(
-            suffixIcon: IconButton(
-              icon: Icon(Icons.close),
-              onPressed: () => passwordController.clear(),
-            ),
-            hintText: 'Enter your password',
-            labelText: 'Password',
-            labelStyle: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-                fontSize: 13),
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.black,
+            controller: passwordController,
+            keyboardType: TextInputType.name,
+            textInputAction: TextInputAction.next,
+            validator: (passwordController) {
+              if (passwordController!.isEmpty || !RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$').hasMatch(passwordController)){
+                return "Your password should contain Lower and upper\n case letters and a special symbol";
+              }else{
+                return null;
+              }
+            },
+            decoration: InputDecoration(
+              suffixIcon: IconButton(
+                icon: Icon(Icons.close),
+                onPressed: () => passwordController.clear(),
+              ),
+              hintText: 'Enter your password',
+              labelText: 'Password',
+              labelStyle: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 13),
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.black,
               ),
             ),
           ),
@@ -373,7 +409,7 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
               onPressed: () => cityController.clear(),
             ),
             hintText: 'Enter the city where you are located',
-            labelText: 'Cidade',
+            labelText: 'City',
             labelStyle: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w500,
