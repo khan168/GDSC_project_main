@@ -44,7 +44,9 @@ Widget buildUserInfoDisplay(String getValue, String title) =>
                         color: Colors.grey,
                         size: 40.0,
                       )
-                    ])),
-
+                    ]
+                )
+            ),
           ],
-        ));
+        )
+    );

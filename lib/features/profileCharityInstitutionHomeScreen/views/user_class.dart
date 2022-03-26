@@ -1,4 +1,4 @@
-class user_class{
+/*class user_class{
   late final String name;
   late final String email;
   late final String address;
@@ -9,3 +9,4 @@ class user_class{
   user_class({required this.name, required this.email, required this.address, required this. telephone, required this.affiliation });
 
 }
+ */

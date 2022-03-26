@@ -1,3 +1,4 @@
+/*
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_gdsc_competion/features/profileCharityInstitutionHomeScreen/views/profileiconprofilecharityinstitutionhomescreen.dart';
@@ -13,7 +14,7 @@ class bodyprofilecharityinstitutionhomescreen extends StatefulWidget {
   @override
   _bodyprofilecharityinstitutionhomescreenState createState() => _bodyprofilecharityinstitutionhomescreenState();
 }
-
+  final passwordController1 = TextEditingController();
 class _bodyprofilecharityinstitutionhomescreenState extends State<bodyprofilecharityinstitutionhomescreen> {
   @override
   Widget build(BuildContext context) {
@@ -26,18 +27,18 @@ class _bodyprofilecharityinstitutionhomescreenState extends State<bodyprofilecha
               'Edit Profile',
               style: TextStyle(
                   color: Colors.blueAccent,
-                  fontSize: 40.0,
+                  fontSize: 35.0,
                   fontWeight: FontWeight.bold
               ),
             ),
           ),
         ),
-        SizedBox(height: 50),
+        SizedBox(height: 20),
 
         SafeArea(child: profileicon()),
 
+        SizedBox(height: 25,),
 
-        SizedBox(height: 40,),
 
         buildUserInfoDisplay(user.name, 'Name'),
         buildUserInfoDisplay(user.telephone, 'Phone'),
@@ -45,10 +46,10 @@ class _bodyprofilecharityinstitutionhomescreenState extends State<bodyprofilecha
         buildUserInfoDisplay(user.address, 'Address'),
         buildUserInfoDisplay(user.email, 'Email'),
         buildUserInfoDisplay(user.affiliation, 'Affiliation to Institution'),
-        buildUserInfoDisplay(user.affiliation, 'Affiliation to Institution'),
 
-      ],);
-
-
+      ],
+    );
   }
 }
+
+ */

@@ -14,8 +14,11 @@ class ViewprofileCharityInstitutionsHomeScreen extends StatefulWidget {
 class _ViewHomeScreenState extends State<ViewprofileCharityInstitutionsHomeScreen> {
   @override
   Widget build(BuildContext context) {
-    final user = UserData.myUser;
-    return Scaffold(
+    //final user = UserData.myUser;
+    return Text('');
+
+      /*
+      Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -25,5 +28,7 @@ class _ViewHomeScreenState extends State<ViewprofileCharityInstitutionsHomeScree
 
 
     );
+
+       */
   }
 }
