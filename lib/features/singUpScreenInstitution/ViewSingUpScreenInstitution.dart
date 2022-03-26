@@ -14,7 +14,7 @@ class singUpScreenInstitution extends StatefulWidget {
 class _ViewHomeScreenState extends State<singUpScreenInstitution> {
   @override
   Widget build(BuildContext context) {
-    final user = UserData.myUser;
+    //final user = UserData.myUser;
     return Scaffold(
       backgroundColor: Colors.white,
       body:  BodySingUpScreenInstitution(),

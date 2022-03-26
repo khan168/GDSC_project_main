@@ -1,4 +1,4 @@
-
+/*
 import 'package:google_gdsc_competion/features/profileCharityInstitutionHomeScreen/views/user_class.dart';
 
 class UserData {
@@ -13,3 +13,5 @@ class UserData {
 
   );
 }
+
+ */

@@ -16,7 +16,9 @@ class profileicon extends StatelessWidget {
             right: 4,
             top: 10,
           )
-        ]));
+        ]
+        )
+    );
   }
 
   // Builds Profile Image
