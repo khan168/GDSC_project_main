@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_gdsc_competion/features/homeScreenRichPoor/views/fourCardsHomeScreenRichPoor.dart';
 import 'package:google_gdsc_competion/features/homeScreenRichPoor/views/topNameHomeScreenRichPoor.dart';
+import '../../../services/Auth.dart';
 import 'buttonCityHomeScreenRichPoor.dart';
 import 'buttonforitemHomeScreenRichPoor.dart';
 
@@ -14,6 +15,7 @@ class BodyHomeScreenRichPoor extends StatefulWidget {
 }
 
 class _Sample1State extends State<BodyHomeScreenRichPoor> {
+  final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,6 +71,12 @@ class _Sample1State extends State<BodyHomeScreenRichPoor> {
                               Container(
                                 child: ButtonItemHomeScreenRichPoor(),//LogInButton(),
                               ),
+                              FlatButton.icon(
+                                  onPressed: ()async{
+                                    await _auth.signout();
+                                  },
+                                  icon: Icon(Icons.person),
+                                  label: Text('Logout')),
                             ],
                           ),
                         ),
@@ -77,6 +85,7 @@ class _Sample1State extends State<BodyHomeScreenRichPoor> {
                   ),
                 ),
               ),
+
             ),
           ],
         ),

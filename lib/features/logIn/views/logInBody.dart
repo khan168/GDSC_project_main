@@ -6,11 +6,10 @@ import 'package:http/http.dart';
 
 
 class LogInBody extends StatefulWidget {
- final Client client;
-
+  final Client client;
 //  final ViewModelLogIn viewMoldel;
   const LogInBody({Key? key,
-  required this.client
+    required this.client
   //required this.viewMoldel,
   }) : super(key: key);
   @override
@@ -20,6 +19,7 @@ class _LogInBody extends State<LogInBody> {
   Client client = http.Client();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -139,8 +139,8 @@ class _LogInBody extends State<LogInBody> {
                           child:  Center(
                             child: RaisedButton(
                               onPressed: () {
-                                //widget.client.post( , body: {'password': passwordController.text, 'email' : emailController.text});
-                               // Navigator.pop(context);
+                                //widget.client.post( url, body: {'password': passwordController.text, 'email' : emailController.text});
+                                Navigator.pop(context);
                               },
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
                               padding: EdgeInsets.all(0.0),

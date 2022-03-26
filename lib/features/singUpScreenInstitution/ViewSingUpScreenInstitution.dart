@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_gdsc_competion/features/profileCharityInstitutionHomeScreen/views/bodyprofilecharityinstitutionhomescreen.dart';
 import 'package:google_gdsc_competion/features/profileCharityInstitutionHomeScreen/views/userData.dart';
 import 'package:google_gdsc_competion/features/singUpScreenInstitution/views/bodySingUpScreenInstitution.dart';
+import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 
 
 class singUpScreenInstitution extends StatefulWidget {
@@ -13,12 +15,13 @@ class singUpScreenInstitution extends StatefulWidget {
 }
 
 class _ViewHomeScreenState extends State<singUpScreenInstitution> {
+  Client client =http.Client();
   @override
   Widget build(BuildContext context) {
     final user = UserData.myUser;
     return Scaffold(
       backgroundColor: Colors.white,
-      body:  BodySingUpScreenInstitution(),
+      body:  BodySingUpScreenInstitution(client: client,),
 
     );
   }

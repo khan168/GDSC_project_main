@@ -3,16 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
+import '../../../services/Auth.dart';
 import '../../homeScreenRichPoor/viewHomeScreenRichPoor.dart';
 import 'backArrowSingUpScreenInstitutions.dart';
 
 
 class BodySingUpScreenInstitution extends StatefulWidget {
-//  final Client client;
+final Client client;
 
 //  final ViewModelLogIn viewMoldel;
   const BodySingUpScreenInstitution({Key? key,
-//    required this.client
+  required this.client
     //required this.viewMoldel,
   }) : super(key: key);
   @override
@@ -20,6 +21,9 @@ class BodySingUpScreenInstitution extends StatefulWidget {
 }
 class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
   Client client = http.Client();
+  final _formkey = GlobalKey<FormState>(); //newly added from brewcrew
+  final AuthService _auth = AuthService();// this too
+  String error=''; //this too
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final nameController = TextEditingController();
@@ -110,10 +114,33 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
                           ),
                           child:  Center(
                             child: RaisedButton(
-                              onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => ViewHomeScreenRichPoor()
-                                ));
+                              onPressed: ()async {
+                                Uri uri = Uri.parse('https://main-gdsc.herokuapp.com/profile/create/');//https:1200.0.0.
+                                await widget.client.post(uri,body: {
+                                  'password':passwordController.text,
+                                  'email':emailController.text,
+                                  'name':nameController.text,
+                                  'address':addressController.text,
+                                  'phone':phoneController.text,
+                                  'city':cityController.text,
+                                  'workingHours':workingHoursController.text
+                                });
+
+
+                                  dynamic result = await _auth
+                                      .registerWithEmailAndPassword(
+                                      emailController.text,
+                                      passwordController.text);
+                                  if (result == null) {
+                                    error = 'please supply a valid email';
+                                    print(error);
+                                  }
+
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          ViewHomeScreenRichPoor()
+                                  ));
+
                               },
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
                               padding: EdgeInsets.all(0.0),
@@ -142,6 +169,11 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
                             ),
                           ),
                         ),
+                        SizedBox(height: 12.0,),
+                        Text(
+                          error,
+                          style: TextStyle(color: Colors.red,fontSize: 14.0),
+                        )
                       ],
                     ),
                   ),

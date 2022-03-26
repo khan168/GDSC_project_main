@@ -18,6 +18,7 @@ class _ViewHomeScreenRichPoorState extends State<ViewHomeScreenRichPoor> {
         child:
         BodyHomeScreenRichPoor(),
 
+
       ),
 
 
