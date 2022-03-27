@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_gdsc_competion/features/homeScreenRichPoor/views/profile_button.dart';
 
-import '../../profileCharityInstitutionHomeScreen/views/userData.dart';
 
 class TopNameHomeScreenRichPoor extends StatefulWidget {
   const TopNameHomeScreenRichPoor({Key? key}) : super(key: key);
@@ -13,24 +13,24 @@ class TopNameHomeScreenRichPoor extends StatefulWidget {
 class _topnamehomeScreenRichPoorState extends State<TopNameHomeScreenRichPoor> {
   @override
   Widget build(BuildContext context) {
-    final user = UserData.myUser;
+    //final user = UserData.myUser;
     return SafeArea(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
             children: [
-               Text(
-                  'Hello,',
-                  style: TextStyle(
-                      fontSize: 30.0,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.bold
-                  ),
+              Text(
+                'Hello,',
+                style: TextStyle(
+                    fontSize: 30.0,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.bold
+                ),
               ),
               SizedBox(height: 2),
               Text(
-                user.name,
+                ' user.name',
                 style: TextStyle(
                     fontSize: 35.0,
                     color: Colors.black,
@@ -40,21 +40,21 @@ class _topnamehomeScreenRichPoorState extends State<TopNameHomeScreenRichPoor> {
 
             ],
           ),
-          SizedBox(width:130),
-          const Padding(
+          SizedBox(width:10),
+          Padding(
             padding: EdgeInsets.all(20),
-            child: Center(
+            child:
+            CircleAvatar(
+              radius: 30,
 
-              child: CircleAvatar(
-                radius: 37,
-                child: CircleAvatar(
-                  backgroundImage: AssetImage('assets/imageLogo.jpeg'),
-                  radius: 36,
-                ),
-              ),
+
+              child: ProfileButton(),
+
+
+
             ),
           ),
-        ],
+        ], //
       ),
     );
   }

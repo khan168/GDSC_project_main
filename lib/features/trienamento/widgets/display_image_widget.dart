@@ -1,8 +1,16 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 
-class profileicon extends StatelessWidget {
+class DisplayImage extends StatelessWidget {
+  final String imagePath;
+  final VoidCallback onPressed;
+
+  // Constructor
+  const DisplayImage({
+    Key? key,
+    required this.imagePath,
+    required this.onPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +29,10 @@ class profileicon extends StatelessWidget {
 
   // Builds Profile Image
   Widget buildImage(Color color) {
-    final image = NetworkImage('http://img1.wsimg.com/isteam/ip/e88b8bc1-f5ba-4b6a-8853-031052b9e8bf/3.23.19ChristinaMatthewCR_0011%20copy.jpg');
+    final image = imagePath.contains('https://')
+        ? NetworkImage(imagePath)
+        : FileImage(File(imagePath));
+
     return CircleAvatar(
       radius: 75,
       backgroundColor: color,

@@ -4,11 +4,5 @@ class dataModelUser{
 
 }
 
-class dataModelUserBrewIng{
-  final String? uid;
-  final String? name;
-  final String? sugars;
-  final int? strength;
 
-  dataModelUserBrewIng({ this.uid, this.sugars, this.strength, this.name });
-}
+

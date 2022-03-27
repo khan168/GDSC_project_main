@@ -6,7 +6,6 @@ import 'package:google_gdsc_competion/models/user.dart';
 import 'package:google_gdsc_competion/services/Auth.dart';
 import 'package:google_gdsc_competion/wrapper.dart';
 import 'package:provider/provider.dart';
-import 'features/profileCharityInstitutionHomeScreen/views/bodyprofilecharityinstitutionhomescreen.dart';
 import 'features/singUpScreenInstitution/ViewSingUpScreenInstitution.dart';
 import 'features/veryFirstScreenUserType/veryFirstScreenUserType.dart';
 
@@ -25,7 +24,7 @@ class MyApp extends StatelessWidget {
       initialData: null,
       value: AuthService().user,
       child: MaterialApp(
-      home: Wrapper(),
+      home: Wrapper()
     )
     );
   }

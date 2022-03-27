@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_gdsc_competion/features/profileCharityInstitutionHomeScreen/views/bodyprofilecharityinstitutionhomescreen.dart';
-import 'package:google_gdsc_competion/features/profileCharityInstitutionHomeScreen/views/userData.dart';
 import 'package:google_gdsc_competion/features/singUpScreenInstitution/views/bodySingUpScreenInstitution.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
+
+import '../trienamento/user_profiles/user_data.dart';
 
 
 class singUpScreenInstitution extends StatefulWidget {

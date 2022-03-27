@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:provider/provider.dart';
+import '../../../models/user.dart';
 import '../../../services/Auth.dart';
 import '../../homeScreenRichPoor/viewHomeScreenRichPoor.dart';
 import 'backArrowSingUpScreenInstitutions.dart';
@@ -36,169 +38,175 @@ class _BodySingUpScreenInstitution extends State<BodySingUpScreenInstitution> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    return StreamProvider<dataModelUser?>.value(
+      value: AuthService().user,
+      initialData: null,
+      catchError:(_, __) => null,
+      child: Scaffold(
+        body: Container(
 
-        width: double.infinity,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                colors: [
-                  Colors.blue.shade900,
-                  Colors.blue.shade500,
-                  Colors.blue.shade400,
-                ]
-            )
-        ),
+          width: double.infinity,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  colors: [
+                    Colors.blue.shade900,
+                    Colors.blue.shade500,
+                    Colors.blue.shade400,
+                  ]
+              )
+          ),
 
-        child: Column(
+          child: Column(
 
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-                padding: const EdgeInsets.fromLTRB(12,46,10,20),
-                child:
-                Row(
-                  children: [
-                    SizedBox(child:
-                     BackArrowSingUpScreenInstitutions(),
-                    ),
-                      Text("SingUp",style: TextStyle(color: Colors.white,fontSize: 40),),
-                  ],
-                ),
-            ),
-            Expanded(
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
-                ),
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.all(30),
-                    child: Column(
-                      children: [
-                        Form(
-                          key: formKeyAuthentication,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Column(
-                              children: [
-                                _nameWidget(),
-                                SizedBox(height: 5,),
-                                _emailWidget(),
-                                SizedBox(height: 5,),
-                                _passwordWidget(),
-                                SizedBox(height: 5,),
-                                _addressWidget(),
-                                SizedBox(height: 5,),
-                                _itemsAcceptedWidget(),
-                                SizedBox(height: 5,),
-                                _workingHoursWidget(),
-                                SizedBox(height: 5,),
-                                _cityWidget(),
-                                SizedBox(height: 5,),
-                                _phoneWidget(),
-                                SizedBox(height: 5,),
-                              ],
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                  padding: const EdgeInsets.fromLTRB(12,46,10,20),
+                  child:
+                  Row(
+                    children: [
+                      SizedBox(child:
+                       BackArrowSingUpScreenInstitutions(),
+                      ),
+                        Text("Sign Up",style: TextStyle(color: Colors.white,fontSize: 40),),
+                    ],
+                  ),
+              ),
+              Expanded(
+                child: Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
+                  ),
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.all(30),
+                      child: Column(
+                        children: [
+                          Form(
+                            key: formKeyAuthentication,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Column(
+                                children: [
+                                  _nameWidget(),
+                                  SizedBox(height: 5,),
+                                  _emailWidget(),
+                                  SizedBox(height: 5,),
+                                  _passwordWidget(),
+                                  SizedBox(height: 5,),
+                                  _addressWidget(),
+                                  SizedBox(height: 5,),
+                                  _itemsAcceptedWidget(),
+                                  SizedBox(height: 5,),
+                                  _workingHoursWidget(),
+                                  SizedBox(height: 5,),
+                                  _cityWidget(),
+                                  SizedBox(height: 5,),
+                                  _phoneWidget(),
+                                  SizedBox(height: 5,),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        SizedBox(height: 40),
-                        // #login
-                        Container(
-                          height: 50,
-                          margin:  EdgeInsets.symmetric(horizontal: 50),
+                          SizedBox(height: 40),
+                          // #login
+                          Container(
+                            height: 50,
+                            margin:  EdgeInsets.symmetric(horizontal: 50),
 
-                          child:  Center(
-                            child: RaisedButton(
+                            child:  Center(
+                              child: RaisedButton(
 
-                              onPressed: ()async {
+                                onPressed: ()async {
 
 
-                                final form = formKeyAuthentication.currentState!;
+                                  final form = formKeyAuthentication.currentState!;
 
-                                if (form.validate()) {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => ViewHomeScreenRichPoor()
-                                  ));
-
+                                  if (form.validate()) {
+                                    Navigator.of(context).push(MaterialPageRoute(
+                                        builder: (context) => ViewHomeScreenRichPoor()
+                                    ));
 
 
 
+                                    final u = Provider.of<dataModelUser?>(context);
 
 
-                                Uri uri = Uri.parse('https://main-gdsc.herokuapp.com/profile/create/');//https:1200.0.0.
-                                await widget.client.post(uri,body: {
-                                  'password':passwordController.text,
-                                  'email':emailController.text,
-                                  'name':nameController.text,
-                                  'address':addressController.text,
-                                  'phone':phoneController.text,
-                                  'city':cityController.text,
-                                  'workingHours':workingHoursController.text
-                                });
+                                  Uri uri = Uri.parse('https://main-gdsc.herokuapp.com/profile/create/');//https:1200.0.0.
+                                  await widget.client.post(uri,body: {
+                                    'password':passwordController.text,
+                                    'email':emailController.text,
+                                    'name':nameController.text,
+                                    'address':addressController.text,
+                                    'phone':phoneController.text,
+                                    'city':cityController.text,
+                                    'workingHours':workingHoursController.text,
+                                    'uid':u?.uid
+                                  });
 
 
 
-                                  dynamic result = await _auth
-                                      .registerWithEmailAndPassword(
-                                      emailController.text,
-                                      passwordController.text);
-                                  if (result == null) {
-                                    error = 'please supply a valid email';
-                                    print(error);
+                                    dynamic result = await _auth
+                                        .registerWithEmailAndPassword(
+                                        emailController.text,
+                                        passwordController.text);
+                                    if (result == null) {
+                                      error = 'please supply a valid email';
+                                      print(error);
+                                    }
+
+                                    // Navigator.of(context).push(MaterialPageRoute(
+                                    //     builder: (context) =>
+                                    //         ViewHomeScreenRichPoor()
+                                    // ));
                                   }
 
-                                  // Navigator.of(context).push(MaterialPageRoute(
-                                  //     builder: (context) =>
-                                  //         ViewHomeScreenRichPoor()
-                                  // ));
-                                }
-
-                              },
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
-                              padding: EdgeInsets.all(0.0),
-                              child: Ink(
-                                decoration: BoxDecoration(
-                                    gradient: LinearGradient(colors: [Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400],
-                                      begin: Alignment.centerLeft,
-                                      end: Alignment.centerRight,
-                                    ),
-                                    borderRadius: BorderRadius.circular(30.0)
-                                ),
-                                child: Container(
-                                  constraints: BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    'Sing Up',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 20.0,
-                                        fontWeight: FontWeight.bold
+                                },
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
+                                padding: EdgeInsets.all(0.0),
+                                child: Ink(
+                                  decoration: BoxDecoration(
+                                      gradient: LinearGradient(colors: [Colors.blue.shade900,Colors.blue.shade500,  Colors.blue.shade400],
+                                        begin: Alignment.centerLeft,
+                                        end: Alignment.centerRight,
+                                      ),
+                                      borderRadius: BorderRadius.circular(30.0)
+                                  ),
+                                  child: Container(
+                                    constraints: BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      'register',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20.0,
+                                          fontWeight: FontWeight.bold
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        SizedBox(height: 12.0,),
-                        Text(
-                          error,
-                          style: TextStyle(color: Colors.red,fontSize: 14.0),
-                        )
-                      ],
+                          SizedBox(height: 12.0,),
+                          Text(
+                            error,
+                            style: TextStyle(color: Colors.red,fontSize: 14.0),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
