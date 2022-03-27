@@ -4,7 +4,10 @@ import 'package:google_gdsc_competion/features/singUpScreenInstitution/views/bod
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
-import '../trienamento/user_profiles/user_data.dart';
+import '../updateinfoInstitution/user/user_data.dart';
+
+
+
 
 
 class singUpScreenInstitution extends StatefulWidget {

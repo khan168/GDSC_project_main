@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../homeScreenRichPoor/viewHomeScreenRichPoor.dart';
+
+import '../../homescreenrichpoor2/viewHomeScreenRichPoor.dart';
 
 class LogInButton extends StatefulWidget {
   const LogInButton({Key? key}) : super(key: key);

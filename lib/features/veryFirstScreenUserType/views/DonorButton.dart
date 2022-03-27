@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../homeScreenRichPoor/viewHomeScreenRichPoor.dart';
+
+import '../../homescreenrichpoor2/viewHomeScreenRichPoor.dart';
 import '../../loginSingup/logInSingUpScreen.dart';
 
 class DonorButton extends StatefulWidget {

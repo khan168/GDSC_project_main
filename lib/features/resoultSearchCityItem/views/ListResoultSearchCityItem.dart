@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../InfoCharityInstitution/viewInformationCharityInstitution.dart';
+
 class ListResoultSearchCityItem extends StatelessWidget {
    ListResoultSearchCityItem({Key? key}) : super(key: key);
 
@@ -16,7 +18,12 @@ class ListResoultSearchCityItem extends StatelessWidget {
             return Card(
 
               child: ListTile(
-                  onTap:(){},
+                  onTap:(){
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => InformationCharityInstitution1()
+                    ));
+
+                  },
                   subtitle: Text('Location:'),
                   title: Text(listaVisivel[index],
                     style: TextStyle(
