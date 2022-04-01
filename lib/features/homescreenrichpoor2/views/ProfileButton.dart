@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../updateinfoInstitution/pages/profile_page.dart';
+import '../../profileCharityInstitutionHomeScreen/ViewprofileCharityInstitutionHomeScreen.dart';
 
 class ProfileButton extends StatefulWidget {
   const ProfileButton({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class _LogInButtonState extends State<ProfileButton> {
     return RaisedButton(
       onPressed: () {
         Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => ProfilePage()
+            builder: (context) => ViewprofileCharityInstitutionsHomeScreen()
         ));
       },
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),

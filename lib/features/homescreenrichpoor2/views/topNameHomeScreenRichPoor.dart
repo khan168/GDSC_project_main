@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../profileCharityInstitutionHomeScreen/views/userData.dart';
 import 'ProfileButton.dart';
 
 class TopNameHomeScreenRichPoor extends StatefulWidget {
@@ -29,7 +30,7 @@ class _topnamehomeScreenRichPoorState extends State<TopNameHomeScreenRichPoor> {
               ),
               SizedBox(height: 2),
               Text(
-               ' Red Cross',
+               ' user.name',
                 style: TextStyle(
                     fontSize: 35.0,
                     color: Colors.black,
@@ -39,7 +40,7 @@ class _topnamehomeScreenRichPoorState extends State<TopNameHomeScreenRichPoor> {
 
             ],
           ),
-          SizedBox(width:10),
+          SizedBox(width:130),
            Padding(
             padding: EdgeInsets.all(20),
             child:

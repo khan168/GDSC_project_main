@@ -1,13 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_gdsc_competion/features/profileCharityInstitutionHomeScreen/views/userData.dart';
 import 'package:google_gdsc_competion/features/singUpScreenInstitution/views/bodySingUpScreenInstitution.dart';
-import 'package:http/http.dart' as http;
-import 'package:http/http.dart';
-
-import '../updateinfoInstitution/user/user_data.dart';
-
-
-
 
 
 class singUpScreenInstitution extends StatefulWidget {
@@ -18,13 +12,12 @@ class singUpScreenInstitution extends StatefulWidget {
 }
 
 class _ViewHomeScreenState extends State<singUpScreenInstitution> {
-  Client client =http.Client();
   @override
   Widget build(BuildContext context) {
-    final user = UserData.myUser;
+    //final user = UserData.myUser;
     return Scaffold(
       backgroundColor: Colors.white,
-      body:  BodySingUpScreenInstitution(client: client,),
+      body:  BodySingUpScreenInstitution(),
 
     );
   }

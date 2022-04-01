@@ -54,7 +54,12 @@ dev_dependencies:
   auto_size_text: ^3.0.0
   url_launcher: ^6.0.10
   font_awesome_flutter: ^9.2.0
-
+  email_validator: ^2.0.1
+  animated_theme_switcher: ^2.0.1
+  image_picker: ^0.8.4+1
+  shared_preferences: ^2.0.8
+  string_validator: ^0.3.0
+  path_provider: ^2.0.4
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -77,7 +82,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
      - assets/imageLogo.jpeg
-     - assets/imageLogo.jpeg
+     - assets/avatarImage.jpeg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
